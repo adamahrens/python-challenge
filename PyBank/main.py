@@ -28,6 +28,9 @@ with open('02-Homework_03-Python_Instructions_PyBank_Resources_budget_data.csv',
         current_revenue = int(row[-1])
 
         # Calculate Profit Increase & Decrease
+        # Since its the first row of data
+        # we need to to set the default values
+        # we have nothing else to compare it to.
         if profit_increase_date == "Now":
             #Increasing
             profit_increase_date = current_date
@@ -36,9 +39,11 @@ with open('02-Homework_03-Python_Instructions_PyBank_Resources_budget_data.csv',
             profit_decrease_date = current_date
             profit_decrease_revenue = current_revenue
         else:
+            # Whats the change from this month to the previous
             delta = current_revenue - int(previous_row[-1])
 
             # Need a list of all the changes from month to month
+            # to help calculate the average change
             total_deleta_change_month_to_month.append(delta)
 
             # Is it a big profit?
