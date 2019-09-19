@@ -38,9 +38,6 @@ with open('02-Homework_03-Python_Instructions_PyBank_Resources_budget_data.csv',
         else:
             # Whats the change from this month to the previous
             delta = current_revenue - int(previous_row[-1])
-
-            # Need a list of all the changes from month to month
-            # to help calculate the average change
             total_deleta_change_month_to_month.append(delta)
 
             # Is it a big profit?
@@ -60,11 +57,7 @@ with open('02-Homework_03-Python_Instructions_PyBank_Resources_budget_data.csv',
         previous_row = row
 
 # Calculate average change from month to month
-total = 0
-for change in total_deleta_change_month_to_month:
-    total += change
-
-average_change = total / total_months
+average_change = sum(total_deleta_change_month_to_month) / len(total_deleta_change_month_to_month)
 
 print('Financial Analysis')
 print('----------------------------')
