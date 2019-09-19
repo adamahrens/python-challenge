@@ -40,3 +40,25 @@ for candidate,vote in results.items():
 print('-------------------------')
 print('Winner: ' + winner)
 print('-------------------------')
+
+file = open('election-results.txt', 'a')
+file.write('Election Results')
+file.write('\n')
+file.write('-------------------------')
+file.write('\n')
+file.write('Total Votes: ' + str(total_votes))
+file.write('\n')
+file.write('-------------------------')
+file.write('\n')
+for candidate,vote in results.items():
+    percent_won = (vote / total_votes) * 100
+    percent_display = '{:0.3f}'.format(percent_won)
+    file.write(f'{candidate}: {percent_display}% ({vote})')
+    file.write('\n')
+
+file.write('-------------------------')
+file.write('\n')
+file.write('Winner: ' + winner)
+file.write('\n')
+file.write('-------------------------')
+file.close()
